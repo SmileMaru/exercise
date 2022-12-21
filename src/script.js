@@ -5,7 +5,7 @@ import gsap from 'gsap'
 
 
 /**
- * Debug
+ * Debug 控制器
  */
 const gui = new dat.GUI()
 
