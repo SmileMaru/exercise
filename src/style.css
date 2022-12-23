@@ -1,3 +1,8 @@
+:root{
+    --name-transition-pink-color: #e68d8e;
+    --name-transition-blue-color: #5eb8bd;
+    --main-font-color: #3d405b;
+}
 *
 {
     margin: 0;
@@ -5,7 +10,8 @@
 }
 html{
     background: #fff;
-    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-family: 'Varela Round', sans-serif;
+    letter-spacing: 2px;
 }
 /* html,
 body
@@ -21,6 +27,7 @@ body
     outline: none;
 }
 
+/* header ===================== */
 .header{
     position: fixed;
     left: 1%;
@@ -28,15 +35,14 @@ body
     z-index: 10000;
 }
 .header_links img{
-    width: 40px;
+    width: 50px;
 }
 .header_links img:hover{
     opacity: 0.6;
 }
 .header_links{
     display: flex;
-    width: 150px;
-    justify-content: space-evenly;
+    flex-direction: column;
 }
 .section
 {   
@@ -45,7 +51,7 @@ body
     align-items: center;
     height: 100vh;
     position: relative;
-    color: #000;
+    color: var(--main-font-color);
     text-transform: uppercase;
     padding-left: 10%;
     padding-right: 10%;
@@ -75,7 +81,7 @@ body
 }
 .section .scroll_circle{
     position: absolute;
-    background-color: #000;
+    background-color: var(--main-font-color);
     width: 100px;
     height: 100px;
     border-radius: 50%;
@@ -101,6 +107,21 @@ body
     justify-content: center;
     animation: upAndDown linear 5s infinite;
 }
+.name_transition .name_char{
+    animation: anim_font_color 1s linear;
+}
+/* .name_transition:nth-child(1){
+    animation-delay: .2s;
+}
+.name_transition:nth-child(2){
+    animation-delay: .4s;
+}
+.name_transition:nth-child(3){
+    animation-delay: .6s;
+}
+.name_transition:nth-child(4){
+    animation-delay: .8s;
+} */
 @keyframes rotate{
     from{transform: rotate(-360deg);}
     to{transform: rotate(0deg)};
@@ -111,7 +132,15 @@ body
     100%{transform: translateY(10px)};
 }
 
-.projects{
+@keyframes anim_font_color{
+    0%{color: var(--name-transition-pink-color);}
+    33%{color: var(--name-transition-pink-color);}
+    34%{color: var(--name-transition-blue-color);}
+    66%{color: var(--name-transition-blue-color);}
+    67%{color: var(--main-font-color);}
+    100%{color: var(--main-font-color);}
+}
+.projects_container{
     background-color: #FEE5E3;
     box-sizing: border-box;
 }
@@ -119,9 +148,9 @@ body
     width: 100%;
     position: relative;
 }
-.projects .project_card{
+.project_card{
     width: 320px;
-    height: 450px;
+    height: 420px;
     box-sizing: border-box;
     background-color: #fff;
     text-transform: none;
@@ -169,7 +198,7 @@ button:hover{
 }
 .proj_img_container{
     overflow: hidden;
-    object-fit: 100%;
+    object-fit: cover;
     width: auto;
     height: 200px;
     margin: 15px;
@@ -178,6 +207,7 @@ button:hover{
 .proj_img_container img{
     width: 100%;
     vertical-align: top;
+    height: 100%;
 }
 .proj_F2E .f2e_img{
     height: 100%;
@@ -194,6 +224,7 @@ button:hover{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    letter-spacing: 0;
 }
 .skills_bar li{
     border: 1px solid;
@@ -220,16 +251,94 @@ button:hover{
     background-color: #5A69EC;
     color: #fff;
 }
-
+/* about ======================== */ 
+.about_container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.about_content_container{
+    max-width: 450px;
+}
+.intro_content_container{
+    font-family: 'Hanken Grotesk', sans-serif;
+    line-height: 2;
+}
+.my_img_box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.my_img{
+    width: 200px;
+}
+.link_intro_name{
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 5px;
+    width: 80px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--main-font-color);
+    transition: .8s;
+    overflow: hidden;
+}
+.link_intro_name:hover{
+    color: #fff;
+}
+.sub_header_introduction{
+    text-align: center;
+}
+.dec_line_box{
+    padding: 2rem 0;
+}
+.line{
+    height: 1px;
+    border-radius: 10px;
+    width: 100%;
+    background-color: #e3d5ca;
+}
+.skills_box{
+    text-align: center;
+}
+.skills_box img:hover{
+    transform: rotate(-360deg);
+    transition: all .6s;
+}
+.intro_content{
+    padding: 0 10px;
+}
+.about_skills_container h3{
+    text-align: center;
+    padding-bottom: 1rem;
+}
 /* footer */
 .footer_container{
     text-align: center;
-    background-color: #333333;
+    background-color: var(--main-font-color);
     height: 50px;
     color: #fff;
     padding: 1rem;
     position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
 .footer_container a{
     color: #fff;
 }
+.footer_img{
+    vertical-align: top;
+    width: 45px;
+    padding: 0 5px;
+}
+.footer_img:hover{
+    transform: scale(1.1);
+    transition: all .5s;
+}
+.divide_line::before{
+    content:'|';
+    padding: 0 10px;
+}
+
